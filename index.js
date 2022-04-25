@@ -9,26 +9,51 @@ function playerPlay(){
 }
 function playRound(handOne,handTwo){
     if (handOne == "rock" && handTwo == "scissors"){
-        return ("You win! Scissors gets smashed by rock.");
+        return [2,("You win! Scissors gets smashed by rock.")];
     }else if (handOne == "rock" && handTwo == "paper"){
-        return ("You lose. Paper covers rock.");
+        return [1,("You lose. Paper covers rock.")];
     }else if (handOne == "rock" && handTwo == "rock"){
-        return ("It's a tie.");
+        return [0,("It's a tie.")];
     }else if (handOne == "scissors" && handTwo == "rock"){
-        return ("You lose. Rock smashes paper.");
+        return [1,("You lose. Rock smashes paper.")];
     }else if (handOne == "scissors" && handTwo == "paper"){
-        return ("You Win! Scissors cuts paper.");
+        return [2,("You Win! Scissors cuts paper.")];
     }else if (handOne == "scissors" && handTwo == "scissors"){
-        return ("It's a tie.");
+        return [0,("It's a tie.")];
     }else if (handOne == "paper" && handTwo == "scissors"){
-        return ("You lose. Paper gets cut by scissors.");
+        return [1,("You lose. Paper gets cut by scissors.")];
     }else if (handOne == "paper" && handTwo == "paper"){
-        return ("It's a tie.");
+        return [0,("It's a tie.")];
     }else if (handOne == "paper" && handTwo == "rock"){
-        return ("You win! Paper covers rock.");
+        return [2,("You win! Paper covers rock.")];
     }else{
-        return ("Error: Invalid input.");
+        return [-1,("Error: Invalid input.")];
     }
 }
 
-console.log(playRound(playerPlay(), computerPlay()));
+function game(){
+    let playerScore = 0;
+    let pcScore = 0;
+    for (i = 0; i < 5; i++){
+        let round = playRound(playerPlay(),computerPlay());
+        console.log(`Round ${i+1}.`)
+        if (round[0] == 2){
+            console.log(round[1]);
+            playerScore++;
+            console.log(`Score is Player: ${playerScore} - PC: ${pcScore}`);
+        }
+        else if (round[0] == 1){
+            console.log(round[1]);
+            pcScore++;
+            console.log(`Score is Player: ${playerScore} - PC: ${pcScore}`);
+        }
+        else if (round[0] == -1){
+            console.log(round[1]);
+        }
+        else{
+            console.log(round[1]);
+        }
+    }
+}
+
+game();
