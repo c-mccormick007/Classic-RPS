@@ -8,7 +8,6 @@ function playerPlay(){
     return choice;
 }
 function playRound(handOne,handTwo){
-    console.log("test");
     console.log(handOne);
     console.log(handTwo);
     if (handOne == "rock" && handTwo == "scissors"){
@@ -35,12 +34,13 @@ function playRound(handOne,handTwo){
 }
 
 const buttons = document.getElementsByClassName('gameBtn');
+let result = "";
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', () => {
-        playRound(buttons[i].value,computerPlay());
+        result = playRound(buttons[i].value,computerPlay());
+        console.log(result);
     });
 }
-console.log(buttons);
 /* function game(){
     let playerScore = 0;
     let pcScore = 0;
