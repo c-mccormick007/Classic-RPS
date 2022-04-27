@@ -8,6 +8,9 @@ function playerPlay(){
     return choice;
 }
 function playRound(handOne,handTwo){
+    console.log("test");
+    console.log(handOne);
+    console.log(handTwo);
     if (handOne == "rock" && handTwo == "scissors"){
         return [2,("You win! Scissors gets smashed by rock.")];
     }else if (handOne == "rock" && handTwo == "paper"){
@@ -31,12 +34,19 @@ function playRound(handOne,handTwo){
     }
 }
 
-function game(){
+const buttons = document.getElementsByClassName('gameBtn');
+for (let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', () => {
+        playRound(buttons[i].value,computerPlay());
+    });
+}
+console.log(buttons);
+/* function game(){
     let playerScore = 0;
     let pcScore = 0;
-    for (i = 0; i < 5; i++){
+    // for (i = 0; i < 5; i++){
         let round = playRound(playerPlay(),computerPlay());
-        console.log(`Round ${i+1}.`)
+        // console.log(`Round ${i+1}.`)
         if (round[0] == 2){
             console.log(round[1]);
             playerScore++;
@@ -53,7 +63,7 @@ function game(){
         else{
             console.log(round[1]);
         }
-    }
+    // }
 }
 
-game();
+game(); */ 
