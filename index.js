@@ -34,12 +34,48 @@ function playRound(handOne,handTwo){
 }
 
 const buttons = document.getElementsByClassName('gameBtn');
+const gameInfo = document.querySelector('.result');
+const humanScore = document.querySelector('.scoreHuman');
+const pcScore = document.querySelector('.scorePC');
+let scoreLeft = 0;
+let scoreRight = 0;
 let result = "";
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', () => {
         result = playRound(buttons[i].value,computerPlay());
-    });
+        console.log(result);
+        gameInfo.textContent = result[1];
+        if (result[0] == 2){
+            scoreLeft++;
+            humanScore.textContent = `Human: ${scoreLeft}`;
+            if (scoreLeft == 5){
+                gameInfo.textContent = "You win!";
+                document.querySelectorAll('.game').forEach(el => el.remove());
+            }
+            else if (scoreRight == 5){
+                gameInfo.textContent = "PC wins.";
+                document.querySelectorAll('.game').forEach(el => el.remove());
+            }            
+            }
+        else if (result[0] == 1){
+            scoreRight++;
+            pcScore.textContent = `PC: ${scoreRight}`;
+            if (scoreLeft == 5){
+                gameInfo.textContent = "You win!";
+                document.querySelectorAll('.game').forEach(el => el.remove());
+            }
+            else if (scoreRight == 5){
+                gameInfo.textContent = "PC wins.";
+                document.querySelectorAll('.game').forEach(el => el.remove());
+            }
+            
+        }
+        else{
+            return 0;
+        }
+    });    
 }
+
 /* function game(){
     let playerScore = 0;
     let pcScore = 0;
