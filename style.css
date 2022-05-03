@@ -1,0 +1,48 @@
+
+.header {
+    padding: 30px;
+    background-color: #2da6f7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body{
+    font-family: "Lucidia Console", "Courier New", monospace;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 100px;
+    padding-top: 300px;
+    padding-bottom: 300px;
+    gap: 50px;
+    background-color: #c6eaff;
+}
+
+.gameBtn{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color:#FFFFFF;
+    background-color:#4eb5f1;
+    text-align:center;
+    transition: all 0.2s;
+    font-size: 30px;
+    font-family: "Lucidia Console", "Courier New", monospace;
+    }
+    .gameBtn:hover{
+    background-color:#4095c6;
+    }
+    @media all and (max-width:30em){
+    .gameBtn{
+    display:block;
+    margin:0.2em auto;
+    }
+}
